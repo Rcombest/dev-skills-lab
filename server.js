@@ -20,6 +20,12 @@ app.set(
 )
 app.set('view engine', 'ejs')
 
+//custom middleware
+app.use(function (req, res, next){
+  req.time = new Date().toLocaleTimeString()
+  next()
+})
+
 // middleware
 app.use(logger('dev'))
 app.use(express.json())
@@ -33,6 +39,8 @@ app.use(
 // mounted routers
 app.use('/', indexRouter)
 app.use('/skills', skillsRouter)
+
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
