@@ -5,6 +5,10 @@ const router = Router()
 
 router.get('/', skillsCtrl.index)
 
+router.get('/new', skillsCtrl.new)
+
+router.post('/', skillsCtrl.create)
+
 
 /* GET users listing. */
 // router.get('/', function(req, res) {
